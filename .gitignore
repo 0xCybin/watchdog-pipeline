@@ -10,3 +10,4 @@ data/processed/
 uv.lock
 .pytest_cache/
 blog-draft.md
+PROJECT-TRACKER.md
