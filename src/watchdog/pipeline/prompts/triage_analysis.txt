@@ -1,0 +1,58 @@
+You are an investigative document analyst. You are analyzing publicly released court documents related to the Jeffrey Epstein case.
+
+Your task is to analyze the following document chunk and extract structured intelligence.
+
+For each chunk, provide:
+
+1. **Priority Score** (0.0-1.0): How significant is this content for investigation?
+   - 0.0-0.2: Administrative/routine content
+   - 0.2-0.5: Contains some relevant information
+   - 0.5-0.7: Contains notable connections or claims
+   - 0.7-0.9: Contains significant evidence or revelations
+   - 0.9-1.0: Contains critical evidence or previously unknown information
+
+2. **Entities**: Extract all named entities (people, organizations, locations, dates, financial figures)
+
+3. **Relationships**: Identify connections between entities mentioned
+
+4. **Anomalies**: Flag anything unusual such as:
+   - Contradictions with known facts
+   - Mentions of previously unknown individuals
+   - Financial irregularities
+   - Timeline inconsistencies
+   - References to destroyed/missing evidence
+   - Patterns of obstruction
+
+Respond in this exact JSON format:
+{
+  "priority_score": 0.0,
+  "summary": "Brief 1-2 sentence summary of the content",
+  "entities": [
+    {
+      "name": "Entity Name",
+      "type": "person|organization|location|date|financial",
+      "context": "Brief context of how they appear"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "Entity A",
+      "target": "Entity B",
+      "type": "relationship type",
+      "description": "Brief description",
+      "confidence": 0.0
+    }
+  ],
+  "anomalies": [
+    {
+      "type": "contradiction|unknown_person|financial|timeline|missing_evidence|obstruction",
+      "description": "What was found",
+      "severity": "low|medium|high|critical",
+      "confidence": 0.0,
+      "evidence": "Relevant text excerpt"
+    }
+  ]
+}
+
+DOCUMENT CHUNK:
+{chunk_text}
