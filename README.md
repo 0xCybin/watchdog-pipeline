@@ -2,7 +2,9 @@
 
 Automated document analysis pipeline that ingests, OCRs, chunks, embeds, and triages large document dumps — surfacing the needles in the haystack.
 
-Built and battle-tested on the Epstein court documents: **500 DOJ docs processed, 1,156 entities extracted, 558 anomalies flagged.**
+Built and battle-tested on the Epstein court documents: **960+ DOJ docs triaged, 2,226 entities extracted, 1,185 anomalies flagged.**
+
+![Raw PDF alongside structured anomaly output from the pipeline](docs/before-after.png)
 
 ---
 
@@ -51,6 +53,8 @@ uv run watchdog-pipeline --step all --limit 50
 | **embed** | Generates sentence-transformer embeddings, stored in pgvector |
 | **triage** | LLM-driven anomaly detection — scores and explains what's suspicious |
 
+![Pipeline running in terminal](docs/pipeline-running.png)
+
 ## API Endpoints
 
 | Method | Endpoint | Description |
@@ -63,6 +67,10 @@ uv run watchdog-pipeline --step all --limit 50
 | `GET` | `/api/v1/stats` | Pipeline statistics |
 | `GET` | `/api/v1/search` | Semantic search across chunks |
 | `POST` | `/api/v1/pipeline/run` | Trigger pipeline run via API |
+
+![Critical anomalies returned from the API](docs/anomalies-swagger.png)
+
+![Stats endpoint showing entities, anomalies, and cost breakdown](docs/stats-endpoint.png)
 
 Start the API server:
 
