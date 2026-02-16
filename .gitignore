@@ -9,3 +9,4 @@ data/processed/
 *.log
 uv.lock
 .pytest_cache/
+blog-draft.md
